@@ -1,7 +1,7 @@
 @extends('layouts.back')
 @section('breadcrumb')
     <div class="col-sm-6">
-        <h1 class="m-0">Dashboard</h1>
+        <h1 class="m-0">Add New Post</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -11,21 +11,29 @@
     </div><!-- /.col -->
 
 @endsection
+@if (session()->has('error') || $errors->any())
+    @section('alerts')
+        <div class="alert alert-danger alert-dismissible fade show light-green" role="alert">
+            {!! session('error') !!}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endsection
+@endif
 @section('content')
+<x-head.tinymce-config/>
     <!-- Main content -->
     <section class="content">
         <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">General</h3>
-                        </div>
                         <div class="card-body">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" name="featured" for="exampleCheck1">Featured Post</label>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="featured" value="1">
+                                <label class="form-check-label" for="exampleCheck1">Featured Post</label>
                             </div>
                             <div class="form-group">
                                 <label for="title">Post Title </label>
@@ -37,13 +45,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Post Description</label>
-                                <textarea id="description" name="body" class="form-control" rows="12" required></textarea>
+                                <textarea id="myeditorinstance" name="body" class="form-control text-area" rows="12"></textarea>
                             </div>
-
-{{--                            <div class="form-group">--}}
-{{--                                <label for="image">Post Image</label>--}}
-{{--                                <input type="file" name="image" class="form-control-file" id="image" required>--}}
-{{--                            </div>--}}
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -51,15 +54,6 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card card-secondary">
-                        <div class="card-header">
-                            <h3 class="card-title">Extra</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="category">Category</label>

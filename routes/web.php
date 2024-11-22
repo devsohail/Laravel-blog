@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,9 @@ require __DIR__.'/auth.php';
 // frontend pages
 Route::get('/', 'PageController@index')->name('home');
 Route::get('/posts', 'PageController@posts')->name('posts');
-Route::get('/posts/{post}', 'PageController@showPost')->name('posts.view');
+Route::get('/company/{company}', 'CompanyController@show')->name('company.show');   
+Route::get('/companies', [CompanyController::class, 'listing'])->name('company.listing');
+Route::get('/posts/{post:slug}', 'PageController@showPost')->name('posts.view');
 Route::get('/category/{category}', 'PageController@showCategory')->name('categories.view');
 
 // admin pages
@@ -31,7 +34,10 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
     Route::resource('posts','PostController');
     Route::resource('categories','CategoryController')->except('show');
     Route::resource('authors','AuthorController');
+    Route::resource('companies','CompanyController');
+    Route::get('company/{company}/{image}', 'CompanyController@removeImage')->name('company.remove-img');
 });
+
 
 
 Route::get('admin', 'Admin\AdminController@index')->name('admin');
@@ -44,3 +50,8 @@ Route::resource('admin/activitylogs', 'Admin\ActivityLogsController')
 Route::resource('admin/settings', 'Admin\SettingsController');
 Route::get('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@getGenerator']);
 Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\ProcessController@postGenerator']);
+
+Route::get('/test', function () {
+    return 'Test route is working';
+});
+

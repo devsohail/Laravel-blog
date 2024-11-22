@@ -11,8 +11,8 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-{{--    <!-- Ionicons -->--}}
-{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
+    {{--    <!-- Ionicons --> --}}
+    {{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     {{-- sweetalert2 --}}
@@ -62,7 +62,15 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="info">
-                        <a href="#" class="d-block">Admin {{ auth()->user()->name }}</a>
+                        <a href="javascript:void(0)" class="d-block">Welcome, {{ auth()->user()->name }}</a>
+                        <a class="nav-item" href="{{ url('/logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fas fa-sign-out-alt"></i> Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -72,38 +80,29 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="{{ route('dashboard') }}" class="nav-link active">
+                            <a href="{{ route('dashboard') }}"
+                                class="{{ request()->is('dashboard') ? 'nav-link active' : 'nav-link' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
-                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                         </li>
-
-                        <li class="nav-header">Blog</li>
                         <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link">
+                            <a href="{{ route('posts.index') }}"
+                                class="{{ request()->is('admin/posts*') ? 'nav-link active' : 'nav-link' }}">
                                 <i class="nav-icon fa fa-file-alt"></i>
-                                <p>Posts</p>
+                                <p>Blog Posts</p>
                             </a>
                         </li>
-
-                        @if (auth()->user()->isAdmin())
-                            <li class="nav-item">
-                                <a href="{{ route('categories.index') }}" class="nav-link">
-                                    <i class="nav-icon fa fa-tags"></i>
-                                    <p>Categories</p>
-                                </a>
-                            </li>
-                        @endif
-
                         <li class="nav-item">
-                            <a href="{{ route('authors.index') }}" class="nav-link">
-                                <i class="nav-icon fa fa-user"></i>
-                                <p>Author</p>
+                            <a href="{{ route('companies.index') }}"
+                                class="{{ request()->is('admin/companies*') ? 'nav-link active' : 'nav-link' }}">
+                                <i class="nav-icon fa fa-building"></i>
+                                <p>Companies</p>
                             </a>
                         </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -127,9 +126,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            Copyright &copy;2023
-            <div class="float-right d-none d-sm-inline-block">Version 3.1.0
-            </div>
+            Copyright &copy;{{ date('Y') }}
         </footer>
 
         <!-- Control Sidebar -->

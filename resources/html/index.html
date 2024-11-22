@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap-css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>UBZ || Project</title>
+
+    <!-- customize-css -->
+    <link rel="stylesheet" href="home.css">
+
+</head>
+
+<body>
+
+    <header class="header-nav">
+        <div class="container py-3">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./images/LOgo.png" alt="Logo" width="55">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#cableTv">Cable TV</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Internet">Internet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Phone</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="providersDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Providers
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="providersDropdown">
+                                    <li><a class="dropdown-item" href="/cable.html">Provider 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Provider 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Provider 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Internet.html">Blog</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 border border-primary rounded-pill bg-light fw-medium"
+                                type="search" placeholder="Search" aria-label="Search" style="font-size: 13px;">
+                            <i class="fa-solid fa-magnifying-glass"
+                                style="position: relative; left: -32px; display: flex; align-items: center;"></i>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+
+    </header>
+
+    <main>
+        <div class="container-fluid main">
+            <div class="main-section">
+                <h3 class="text-dark">Find <span class="text-danger fw-bold">Cable TV, Phone & Internet</span>Providers
+                    Utilities By Zip Code</h3>
+                <p class="text-dark fw-semi-bold pt-3">See Plan, speeds, prices & ratings of your local provider in one
+                    go!
+                </p>
+                <div class="input-btn col-12 d-flex position-relative">
+                    <img src="./images/gps.png" alt="GPS Icon">
+                    <input type="text" id="input-text" class="form-control input-zip mr-2 border-danger border-2"
+                        placeholder="Enter Your Zip Code*">
+                    <a onclick="alertShow()" class="btn btn-primary search-code fw-bold">Search
+                        <img src="./images/download-img.png" alt="Download Icon" width="15">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="companyCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="container">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex align-items-center text-center">
+                            <div class="col-6 col-md-3 ">
+                                <img src="./images/AT&T_logo_2016.svg.png" class="img-fluid" alt="AT&T Logo">
+                            </div>
+                            <div class="border-line"></div>
+
+                            <div class="col-6 col-md-3 ">
+                                <img src="./images/Spectrum-Emblem.png" class="img-fluid" alt="Spectrum Logo">
+                            </div>
+                            <div class="border-line"></div>
+
+                            <div class="col-6 col-md-3 ">
+                                <img src="./images/Xfinity.png" class="img-fluid" alt="Xfinity Logo">
+                            </div>
+                            <div class="border-line"></div>
+
+                            <div class="col-6 col-md-3">
+                                <img src="./images/Cox_Communications_Logo.png" class="img-fluid" alt="Cox Logo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex align-items-center text-center">
+                            <div class="col-6 col-md-3 ">
+                                <img src="./images/Xfinity.png" class="img-fluid" alt="Xfinity Logo">
+                            </div>
+                            <div class="border-line"></div>
+
+                            <div class="col-6 col-md-3 ">
+                                <img src="./images/Cox_Communications_Logo.png" class="img-fluid" alt="Cox Logo">
+                            </div>
+                            <div class="border-line"></div>
+
+                            <div class="col-6 col-md-3 ">
+                                <img src="./images/Xfinity.png" class="img-fluid" alt="Xfinity Logo">
+                            </div>
+                            <div class="border-line"></div>
+
+                            <div class="col-6 col-md-3">
+                                <img src="./images/Cox_Communications_Logo.png" class="img-fluid" alt="Cox Logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container-fluid step-sec mt-5">
+            <div class="container">
+                <div class="step-for-provider py-5">
+                    <h3 class="text-primary fw-bold text-center">3 Steps to Find the<span
+                            class="text-danger fw-bold">Best
+                            Internet Provider</span>in Your Area</h3>
+
+                    <div class="card-group pt-5">
+                        <div class="card border-0 text-center m-auto bg-transparent">
+                            <img src="./images/transparency.png" class="search" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This card has even longer content than the first to show that
+                                    equal
+                                    height action.</p>
+
+                            </div>
+                        </div>
+                        <div class="card border-0 text-center m-auto bg-transparent">
+                            <img src="./images/compare.png" class="campare" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This card has even longer content than the first to show that
+                                    equal
+                                    height action.</p>
+
+                            </div>
+                        </div>
+                        <div class="card border-0 text-center m-auto bg-transparent">
+                            <img src="./images/booking.png" class="booking" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to
+                                    additional content. This card has even longer content than the first to show that
+                                    equal
+                                    height action.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid mb-5 order-section" id="Internet">
+            <div class="container">
+                <div class="order-section-content py-5 text-center">
+                    <h5 class="text-light">Moving to a New Home?</h5>
+                    <h3 class="text-light pb-4">Let's Get You Started!</h3>
+                    <div class="row w-100 mx-auto">
+                        <div class="col-12 col-md-4 mb-4 order-card-body">
+                            <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
+                                <img src="./images/wireless-internet copy.png" class="wireless text-center mx-auto"
+                                    alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title text-light">Internet</h5>
+                                    <h3 class="text-light">$30.00</h3>
+                                    <p class="card-text order-para text-light">Plus taxes, fees and other charges.
+                                        Includes
+                                        Auto Pay and Paperless
+                                        Billing. Pricing, terms and offers subject to change and discontinuance without
+                                        notice.
+                                        Wired connection speeds. Wi-Fi speeds may vary. All services not available in
+                                        all
+                                        areas.
+                                    </p>
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Enjoy blazing fast
+                                            speeds up to 1 Gig</li>
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Stream HD videos, play
+                                            games, shop online and do so much more</li>
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Secure your devices,
+                                            data & network for a safer web surfing</li>
+                                    </ul>
+                                    <div class="button-call">
+                                        <button
+                                            class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">Call
+                                            to order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4 order-card-body">
+                            <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
+                                <div class="wir-led d-flex align-items-center justify-content-center ">
+                                    <img src="./images/wireless-internet copy.png" class="wireless" alt="">
+                                    <img src="./images/led (1).png" class="led" alt="">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-light">Internet + Cable TV</h5>
+                                    <h3 class="text-light">$50.00</h3>
+
+                                    <p class="card-text order-para text-light">Plus taxes, fees and other charges.
+                                        Includes
+                                        Auto Pay and Paperless
+                                        Billing. Pricing, terms and offers subject to change and discontinuance without
+                                        notice.
+                                        Wired connection speeds. Wi-Fi speeds may vary. All services not available in
+                                        all
+                                        areas.
+                                    </p>
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Enjoy blazing fast
+                                            speeds up to 1 Gig</li>
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Stream HD videos, play
+                                            games, shop online and do so much more</li>
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Secure your devices,
+                                            data & network for a safer web surfing</li>
+                                    </ul>
+                                    <div class="button-call">
+                                        <button
+                                            class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">Call
+                                            to order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4 order-card-body">
+                            <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
+                                <div class="wir-led-pho d-flex align-items-center justify-content-center">
+                                    <img src="./images/wireless-internet copy.png" class="wireless" alt="">
+                                    <img src="./images/led (1).png" class="led" alt="">
+                                    <img src="./images/phone-call.png" class="phone" alt="">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-light">Internet + Cable TV + Phone</h5>
+                                    <h3 class="text-light">$60.00</h3>
+
+                                    <p class="card-text order-para text-light">Plus taxes, fees and other charges.
+                                        Includes
+                                        Auto Pay and Paperless
+                                        Billing. Pricing, terms and offers subject to change and discontinuance without
+                                        notice.
+                                        Wired connection speeds. Wi-Fi speeds may vary. All services not available in
+                                        all
+                                        areas.
+                                    </p>
+                                    <ul class="list-unstyled mt-3">
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Enjoy blazing fast
+                                            speeds up to 1 Gig</li>
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Stream HD videos, play
+                                            games, shop online and do so much more</li>
+                                        <li class="text-light"><i class="fa-solid fa-check"></i> Secure your devices,
+                                            data & network for a safer web surfing</li>
+                                    </ul>
+                                    <div class="button-call">
+                                        <button
+                                            class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">Call
+                                            to order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <h3 class="text-dark fw-bold text-center">All the Leaading Internet Provider You Know & Love</h3>
+            <h1 class="place fw-bold text-center">In One Place!</h1>
+            <!-- <hr style=" width: 15%; margin: 9px auto; border: 2px solid #8B0000; background-color: #8B0000;"> -->
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-primary border-2 rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/Xfinity.png" class="w-50" alt="">
+                            <p class="card-text">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text fs-6 ">Get up to 1000 Mbps internet speeds, digital TV with 260+
+                                channels, unlimited talk-time, home security, and business plans Xfinity is available
+                                across 39 U.S. states, with a strong presence in Florida, Illinois, and California</p>
+                            <a href="#"
+                                class="btn btn-danger call-order bg-transparent text-danger rounded-pill border-2">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-danger bg-danger rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/Spectrum-Emblem.png" class="w-50" alt="">
+                            <p class="card-text text-light">Bundles starting from <strong>$54.99/mo.</strong>for 12
+                                months. When Bundeld</p>
+                            <p class="card-text text-light fs-6">Upgrade your internet to 1000 Mbps and get economical
+                                Wi-Fi. You can enjoy 200+ TV channels with FREE HD, make unlimited phone calls across
+                                the US, and get business connected with Spectrum. Spectrum is the second largest cable
+                            </p>
+                            <a href="#"
+                                class="btn btn-danger order-to border-2 border-light bg-transparent rounded-pill">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-primary border-2 rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/Cox_Communications_Logo.png" class="w-50" alt="">
+                            <p class="card-text">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text fs-6">Download speeds up to 1000 Mbps Contour TV with 250+ channels
+                                Digital phone service Business offers
+                                Connect2Compete discount for low-income families
+                                These are among the best services you can get by , which is the third largest cable
+                                provider.</p>
+                            <a href="#"
+                                class="btn btn-danger call-order bg-transparent text-danger rounded-pill border-2">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-primary border-2 rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/AT&T_logo_2016.svg.png" class="w-50" alt="">
+                            <p class="card-text">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text fs-6">1 Gig fiber internet speeds
+                                DSL speeds
+                                Premium subscription to Cinemax, HBO, EPIX, STARZ, and SHOWTIME via AT&T TV
+                                Easy access to DIRECTV service
+                                AT&T Wireless unlimited talk-time
+                                All accessible with the click of a button</p>
+                            <a href="#"
+                                class="btn btn-danger call-order bg-transparent text-danger rounded-pill border-2">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-primary border-2 rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/Mediacom.png" class="w-50" alt="">
+                            <p class="card-text">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text fs-6">Bring Yourself To speed up with 1 Gig fiber internet speeds
+                                DSL speeds
+                                Premium subscription to Cinemax, HBO, EPIX, STARZ, and SHOWTIME via AT&T TV
+                                Easy access to DIRECTV service
+                                AT&T Wireless unlimited talk-time
+                                All accessible with the click of a button</p>
+                            <a href="#"
+                                class="btn btn-danger call-order bg-transparent text-danger rounded-pill border-2">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-primary border-2 rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/Suddenlink.png" class="w-50" alt="">
+                            <p class="card-text">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text fs-6">Experience the Ultra-fast 1 Gig internet speeds
+                                170+ TV channels, including top favorite channels
+                                Unlimited nationwide calling
+                                Remarkable business deals
+                                Mediacom is the 5th largest cable provider in the U.S.
+                                Mediacom's services cover the best areas of Iowa, Georgia, and Illinois</p>
+                            <a href="#"
+                                class="btn btn-danger call-order bg-transparent text-danger rounded-pill border-2">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card image-card-back   rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/Optimum.png" class="w-50" alt="">
+                            <p class="card-text text-light">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text text-light fs-6">Enjoy High-speed internet
+                                HD cable TV
+                                Phone service
+                                All-in-one convenient package at affordable rates
+                                Unlimited data without any annual contracts
+                                Ability to upgrade to Altice One, which combines a modem vadbfav , router, TV box, and
+                                streaming TV box, and dvd source into a single device</p>
+                            <a href="#"
+                                class="btn btn-danger order-to border-2 border-light rounded-pill bg-transparent text-light">Call
+                                to
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card border-primary border-2 rounded-4 company-cards">
+                        <div class="card-body text-center">
+                            <img src="./images/PngItem_31325.png" class="w-50" alt="">
+                            <p class="card-text">Bundles starting from <strong>$54.99/mo.</strong></p>
+                            <p class="card-text fs-6">Price for Life" deals - This suggests CenturyLink offers plans
+                                with locked-in pricing that won't increase over time.
+                                Internet speeds up to 940 Mbps - The image states c ffprovides very high-speed internet
+                                connectivity.
+                                Unlimited nationwide calling on phone plans.
+                                Exceptional business plans are
+                                <a href="#"
+                                    class="btn btn-danger call-order bg-transparent text-danger rounded-pill border-2">Call
+                                    to order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="map-img">
+                <img src="./images/Bg3.png" class="" alt="">
+            </div>
+            <div class="map-content text-center mx-auto">
+                <h2 class="text-danger fw-medium">Internet Near Me!</h2>
+                <p class="pb-3">LocalCableDeals cuts your research time in half by letting you know about the top
+                    internet, TV &
+                    phone service providers in your area through a simple zip code search, so you can compare them at
+                    ease and make an informed decision.</p>
+                <div class="input-btn1 col-12 d-flex align-items-center justify-content-center">
+                    <img src="./images/gps.png" alt="">
+                    <input type="text" id="input-text1" class="form-control  mr-2 border-danger border-2" height="50"
+                        placeholder="Enter Your Zip Code*">
+                    <a onclick="alertShow()" class="btn btn-primary search-code1 fw-bold">Search<img
+                            src="./images/dounloa-img.png" alt="" width="15">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="container camparison mt-5 pt-5">
+            <h1 class="text-danger fw-bold text-center">We rearch so you don't have to</h1>
+            <p class="text-dark text-center">No one here expects you to know everything about TV and internet—that’s our
+                job. So let our team of
+                experts guide you to the best services and products out there.</p>
+            <div class="">
+                <!-- <hr style="color: #003399; width: 15%; margin: auto; height: 3px;border: 2px solid #003399;"> -->
+            </div>
+
+            <h2 class="text-black text-center py-5">CHECK OUT OUR HEAD-TO-HEAD CAMPARISON</h2>
+
+            <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="container">
+                    <div class="carousel-inner">
+                        <!-- First Slide -->
+                        <div class="carousel-item active">
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                                <div class="col">
+                                    <div class="card youtube-card border-0">
+                                        <img src="./images/Image 4.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-secondary text-center">Sling TV <span
+                                                    class="text-danger">VS</span>Youtube TV</h5>
+                                            <p class="card-text text-black text-center">Sling TV offers a good deal for
+                                                an
+                                                affordable
+                                                price—its packages have
+                                                some flexibility, and its largest package is still cheaper than YouTube
+                                                TV.
+                                                But YouTube
+                                                TV offers more channels and unlimited cloud DVR storage space, so in
+                                                many
+                                                ways, you
+                                                really do get what you pay for.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card internet-card border-0">
+                                        <img src="./images/Image 6.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-secondary text-center">Xfinity <span
+                                                    class="text-danger">VS</span> AT&T Internet</h5>
+                                            <p class="card-text text-black text-center">When the competition is AT&T
+                                                Fiber
+                                                vs. Xfinity
+                                                Internet, we say AT&T is
+                                                better than Xfinity. While our recent customer satisfaction survey put
+                                                AT&T
+                                                Fiber and
+                                                Xfinity Internet on equal footing for reliability, you'll get faster
+                                                speeds
+                                                if you go
+                                                with AT&T Fiber.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card dish-card border-0">
+                                        <img src="./images/Image 6.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-secondary text-center">Dish <span
+                                                    class="text-danger">VS</span>
+                                                Directv</h5>
+                                            <p class="card-text text-center text-black">DISH and DIRECTV square off in
+                                                this
+                                                match-up of
+                                                titans. Get the pros
+                                                and cons of TV service from DISH vs DIRECTV in an unbiased comparison
+                                                from
+                                                CableTV.com.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                                <div class="col">
+                                    <div class="card youtube-card border-0">
+                                        <img src="./images/Image 4.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-secondary text-center">Sling TV <span
+                                                    class="text-danger">VS</span>Youtube TV</h5>
+                                            <p class="card-text text-black text-center">Sling TV offers a good deal for
+                                                an
+                                                affordable
+                                                price—its packages have
+                                                some flexibility, and its largest package is still cheaper than YouTube
+                                                TV.
+                                                But YouTube
+                                                TV offers more channels and unlimited cloud DVR storage space, so in
+                                                many
+                                                ways, you
+                                                really do get what you pay for.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card internet-card border-0">
+                                        <img src="./images/Image 6.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-secondary text-center">Xfinity <span
+                                                    class="text-danger">VS</span> AT&T Internet</h5>
+                                            <p class="card-text text-black text-center">When the competition is AT&T
+                                                Fiber
+                                                vs. Xfinity
+                                                Internet, we say AT&T is
+                                                better than Xfinity. While our recent customer satisfaction survey put
+                                                AT&T
+                                                Fiber and
+                                                Xfinity Internet on equal footing for reliability, you'll get faster
+                                                speeds
+                                                if you go
+                                                with AT&T Fiber.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card dish-card border-0">
+                                        <img src="./images/Image 6.png" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-secondary text-center">Dish <span
+                                                    class="text-danger">VS</span>
+                                                Directv</h5>
+                                            <p class="card-text text-center text-black">DISH and DIRECTV square off in
+                                                this
+                                                match-up of
+                                                titans. Get the pros
+                                                and cons of TV service from DISH vs DIRECTV in an unbiased comparison
+                                                from
+                                                CableTV.com.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carousel Navigation -->
+                        <button class="carousel-control-prev prev-button" type="button" data-bs-target="#blogCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon prev-button-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next next-button" type="button" data-bs-target="#blogCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon next-button-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="button-seemore pt-5">
+                <button
+                    class="border-danger border-2 text-danger bg-transparent py-1 px-4 d-block mx-auto text-center rounded-pill">see
+                    more...</button>
+            </div>
+        </div>
+
+
+        <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="container my-5" id="cableTv">
+                <h1 class="text-primary fw-bold text-center">Catch The latest From Our Cable TV</h1>
+
+                <div class="carousel-inner">
+                    <!-- First Slide -->
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="card border-0 d-flex flex-column blogs-content">
+                                    <img src="./images/Image 1.png" class="card-img custom-img" alt="...">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <p class="card-text text-light text-center pb-3">How to sync Xfinity to TV?</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="card border-0 d-flex flex-column blogs-content">
+                                    <img src="./images/Image 3.png" class="card-img custom-img" alt="...">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <p class="card-text text-light text-center pb-3">How to sync Xfinity to TV?</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="card border-0 rounded-3 d-flex flex-column blogs-content">
+                                    <img src="./images/Image 2.png" class="card-img custom-img" alt="...">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <p class="card-text text-light text-center pb-3">How to sync Xfinity to TV?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <div class="card border-0 d-flex flex-column blogs-content">
+                                    <img src="./images/Image 1.png" class="card-img custom-img" alt="...">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <p class="card-text text-light text-center pb-3">How to sync Xfinity to TV?</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="card border-0 d-flex flex-column blogs-content">
+                                    <img src="./images/Image 3.png" class="card-img custom-img" alt="...">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <p class="card-text text-light text-center pb-3">How to sync Xfinity to TV?</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <div class="card border-0 rounded-3 d-flex flex-column blogs-content">
+                                    <img src="./images/Image 2.png" class="card-img custom-img" alt="...">
+                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                        <p class="card-text text-light text-center pb-3">How to sync Xfinity to TV?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <!-- Carousel Navigation -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#blogCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#blogCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+    <footer class="pt-4">
+
+        <div class="container-fluid footer-sec mt-5 py-5">
+
+            <div class="first-footer">
+                <img src="./images/Vector Smart Object.png" class="text-center footer-logo d-block mx-auto" alt="">
+                <div class="social-logo d-flex justify-content-center align-items-center py-5">
+                    <img src="./images/Vector Smart Object-1.png" alt="">
+                    <img src="./images/Vector Smart Object-2.png" alt="">
+                    <img src="./images/Vector Smart Object-3.png" alt="">
+                    <img src="./images/Vector Smart Object-4.png" alt="">
+                </div>
+                <div class="lists-tag">
+                    <ul class="list-1">
+                        <li>Xnifity</li>
+                        <li>Cox</li>
+                        <li>Mediacom</li>
+                        <li>Spectrum</li>
+                        <li>AT&T</li>
+                        <li>WindStream</li>
+                    </ul>
+                    <ul class="list-2">
+                        <li>Optimim</li>
+                        <li>Centurylink</li>
+                        <li>Suddenlink</li>
+                        <li>HUghestnet</li>
+                    </ul>
+                    <ul class="list-3">
+                        <li>Grand</li>
+                        <li>WOW</li>
+                        <li>RCN</li>
+                        <li>More</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="second-footer pt-5 pb-0">
+                <ul>
+                    <li>Home</li>
+                    <li class="border-start border-2 border-light"></li>
+                    <li>Blog</li>
+
+                </ul>
+                <p class="text-light">Copyright © DGS 2022, All Rights Reserved.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Fontawesome Code -->
+    <script src="https://kit.fontawesome.com/6a2acfaa82.js" crossorigin="anonymous"></script>
+    <!-- bootstrap-js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

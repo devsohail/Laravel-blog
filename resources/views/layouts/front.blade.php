@@ -6,9 +6,9 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Saka Pro</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>{{ env('APP_NAME') }}</title>
+    <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
+    <meta name="author" content="{{ env('APP_AUTHOR') }}">
 
     <!-- mobile specific metas
     ================================================== -->
@@ -16,117 +16,121 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="{{ asset('front/css/vendor.css') }}">
-    <link rel="stylesheet" href="{{ asset('front/css/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-
-    <!-- script
-    ================================================== -->
-    <script src="{{ asset('front/js/modernizr.js') }}"></script>
-    <script defer src="{{ asset('front/js/fontawesome/all.min.js') }}"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="{{ asset('front/site.webmanifest') }}">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- customize-css -->
+    <link rel="stylesheet" href="{{ asset('front/css/home.css') }}">
 </head>
 
 <body id="top">
 
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader"></div>
-    </div>
-
-
     <!-- header
     ================================================== -->
-    <header class="s-header">
-
-        <div class="s-header__logo">
-            <a class="logo" href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.svg') }}" alt="Homepage">
-            </a>
+    <header class="header-nav">
+        <div class="container py-3">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{{ route('home') }}">
+                        <img src="{{ asset('front/images/LOgo.png') }}" alt="Logo" width="55">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{ route('home') }}">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('company.listing', ['is_cable_tv' => true]) }}">Cable TV</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('company.listing', ['is_internet' => true]) }}">Internet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('company.listing', ['is_phone' => true]) }}">Phone</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('posts') }}">Blog</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search" action="{{ route('company.listing') }}" method="get">
+                            <input class="form-control me-2 border border-primary rounded-pill bg-light fw-medium"
+                                type="search" placeholder="Search" aria-label="Search" style="font-size: 13px;" name="keyword">
+                            <button class="btn btn-primary search-code fw-bold" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"
+                                style="position: relative; left: 0; display: flex; align-items: center;"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
         </div>
 
-        <div class="row s-header__navigation">
 
-            <nav class="s-header__nav-wrap">
 
-                <h3 class="s-header__nav-heading h6">Navigate to</h3>
-
-                <ul class="s-header__nav">
-                    <li class="current"><a href="{{ route('home') }}" title="">Home</a></li>
-                    <li class="has-children">
-                        <a href="#0" title="">Categories</a>
-                        <ul class="sub-menu">
-                            @foreach ($categories as $cat)
-                                <li><a href="{{ route('categories.view', $cat->id) }}">{{ $cat->title }}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                    @guest
-                        <li>
-                            <a href="{{ route('login') }}" title="">Sign In</a>
-                        </li>
-                    @endguest
-                    @auth
-                        <li>
-                            <a href="{{ route('dashboard') }}" title="">Dashboard</a>
-                        </li>
-                    @endauth
-                </ul> <!-- end s-header__nav -->
-
-                <a href="#0" title="Close Menu" class="s-header__overlay-close close-mobile-menu">Close</a>
-
-            </nav> <!-- end s-header__nav-wrap -->
-
-        </div> <!-- end s-header__navigation -->
-
-        <a class="s-header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
-    </header> <!-- end s-header -->
-
+    </header>
     @yield('content')
-
-
     <!-- footer
     ================================================== -->
-    <footer class="s-footer">
-        <div class="s-footer__bottom">
-            <div class="row">
-                <div class="column">
-                    <div class="ss-copyright">
-                        <span>© Copyright Calvin 2020</span>
-                        <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
-                    </div> <!-- end ss-copyright -->
+    <footer class="pt-4">
+
+        <div class="container-fluid footer-sec mt-5 py-5">
+
+            <div class="first-footer">
+                <img src="{{ asset('front/images/Vector Smart Object.png') }}" class="text-center footer-logo d-block mx-auto" alt="">
+                <div class="social-logo d-flex justify-content-center align-items-center py-5">
+                    <img src="{{ asset('front/images/Vector Smart Object-1.png') }}" alt="">
+                    <img src="{{ asset('front/images/Vector Smart Object-2.png') }}" alt="">
+                    <img src="{{ asset('front/images/Vector Smart Object-3.png') }}" alt="">
+                    <img src="{{ asset('front/images/Vector Smart Object-4.png') }}" alt="">
+                </div>
+                <div class="lists-tag">
+                    <ul class="list-1">
+                        <li>Xnifity</li>
+                        <li>Cox</li>
+                        <li>Mediacom</li>
+                        <li>Spectrum</li>
+                        <li>AT&T</li>
+                        <li>WindStream</li>
+                    </ul>
+                    <ul class="list-2">
+                        <li>Optimim</li>
+                        <li>Centurylink</li>
+                        <li>Suddenlink</li>
+                        <li>HUghestnet</li>
+                    </ul>
+                    <ul class="list-3">
+                        <li>Grand</li>
+                        <li>WOW</li>
+                        <li>RCN</li>
+                        <li>More</li>
+                    </ul>
                 </div>
             </div>
+            <div class="second-footer pt-5 pb-0">
+                <ul>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li class="border-start border-2 border-light"></li>
+                    <li><a href="{{ route('posts') }}">Blog</a></li>
 
-            <div class="ss-go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top">
-                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <path
-                            d="M7.5 1.5l.354-.354L7.5.793l-.354.353.354.354zm-.354.354l4 4 .708-.708-4-4-.708.708zm0-.708l-4 4 .708.708 4-4-.708-.708zM7 1.5V14h1V1.5H7z"
-                            fill="currentColor"></path>
-                    </svg>
-                </a>
-            </div> <!-- end ss-go-top -->
-        </div> <!-- end s-footer__bottom -->
+                </ul>
+                <p class="text-light">Copyright © {{ env('APP_NAME') }} {{ date('Y') }}, All Rights Reserved.</p>
+            </div>
 
-    </footer> <!-- end s-footer -->
+        </div>
+
+    </footer>
+
 
 
     <!-- Java Script
     ================================================== -->
-    <script src="{{ asset('front/js/jquery-3.5.0.min.js') }}"></script>
-    <script src="{{ asset('front/js/plugins.js') }}"></script>
-    <script src="{{ asset('front/js/main.js') }}"></script>
+  
+    <!-- Fontawesome Code -->
+    <script src="https://kit.fontawesome.com/6a2acfaa82.js" crossorigin="anonymous"></script>
+    <!-- bootstrap-js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- bootstrap-css -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Cable || page</title>
+    <link rel="stylesheet" href="cable.css">
+</head>
+<body>
+    
+    
+    <header class="header-nav">
+        <div class="container py-3">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./images/LOgo.png" alt="Logo" width="55">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cable.html">Cable TV</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Internet.html">Internet</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Phone</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="providersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Providers
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="providersDropdown">
+                                    <li><a class="dropdown-item" href="cable.html">Provider 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Provider 2</a></li>
+                                    <li><a class="dropdown-item" href="#">Provider 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Internet.html">Blog</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 border border-primary rounded-pill bg-light fw-medium" type="search" placeholder="Search" aria-label="Search" style="font-size: 13px;">
+                            <i class="fa-solid fa-magnifying-glass" style="position: relative; left: -32px; display: flex; align-items: center;"></i>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        </nav>
+        </div>
+
+    </header>
+
+    <main>
+
+        <div class="container-fluid main">
+            <div class="container main-section ">
+                <h3 class="text-light"><span class="text-light fw-bold fs-2">Internet</span> <span class="text-light fs-3 fw-medium">Providers</span>
+                    in Huffman</h3>
+                <p class="text-light fw-semi-bold pt-3">See Plan,speeds,srices & rating Of your local provider in one go!
+                </p>
+                <div class="location-change">
+                    <li class="search-section">
+                        <input type="text" id="zipCodeInput" class="input-zip" placeholder="Enter your zip code*">
+                        <button class="btn" onclick="searchZip()">Search</button>
+                    </li>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container mt-5">
+            <ul class="nav nav-tabs" id="navTabs">
+                <li class="nav-items mb-md-1">
+                    <a class="nav-links active bg-transparent" onclick="filterContent('internet')" href="#">Internet</a>
+                </li>
+                <li class="nav-items mb-md-1">
+                    <a class="nav-links" onclick="filterContent('tv')" href="#">TV</a>
+                </li>
+                <li class="nav-items mb-md-1">
+                    <a class="nav-links" onclick="filterContent('bundle')" href="#">TV + Internet + Phone</a>
+                </li>
+                <li class="nav-items mb-md-1">
+                    <a class="nav-links" onclick="filterContent('business')" href="#">Business</a>
+                </li>
+                <!-- <li class="nav-items dropdown mb-md-1">
+                    <a class="nav-links dropdown-toggle" href="#" id="recommendedDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Recommended
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="recommendedDropdown">
+                        <li><a class="dropdown-item" onclick="filterContent('option1')" href="#">Option 1</a></li>
+                        <li><a class="dropdown-item" onclick="filterContent('option2')" href="#">Option 2</a></li>
+                        <li><a class="dropdown-item" onclick="filterContent('option3')" href="#">Option 3</a></li>
+                    </ul>
+                </li> -->
+                <li class="search-section">
+                    <input type="text" id="zipCodeInput" placeholder="Enter your zip code*">
+                    <button class="btn" onclick="searchZip()">Search</button>
+                </li>
+            </ul>
+            <h3 class="text-danger fw-medium py-4">All others Plan</h3>
+            <div id="tabContent" class="mt-4 row"></div>
+            <div class="load d-block mx-auto text-center pb-5">
+                <button class="text-light border-2 border-danger rounded-pill bg-danger py-2 px-4">Load more</button>
+             </div>
+        </div>
+        
+    </main>
+
+
+    <footer>
+
+        <div class="container-fluid footer-sec border-top border-danger border-2 py-5">
+
+            <div class="first-footer">
+                <img src="./images/Vector Smart Object.png" class="text-center footer-logo d-block mx-auto" alt="">
+                <div class="social-logo d-flex justify-content-center align-items-center py-5">
+                    <img src="./images/Vector Smart Object-1.png" alt="">
+                    <img src="./images/Vector Smart Object-2.png" alt="">
+                    <img src="./images/Vector Smart Object-3.png" alt="">
+                    <img src="./images/Vector Smart Object-4.png" alt="">
+                </div>
+                <div class="lists-tag">
+                    <ul class="list-1">
+                        <li>Xnifity</li>
+                        <li>Cox</li>
+                        <li>Mediacom</li>
+                        <li>Spectrum</li>
+                        <li>AT&T</li>
+                        <li>WindStream</li>
+                    </ul>
+                    <ul class="list-2">
+                        <li>Optimim</li>
+                        <li>Centurylink</li>
+                        <li>Suddenlink</li>
+                        <li>HUghestnet</li>
+                    </ul>
+                    <ul class="list-3">
+                        <li>Grand</li>
+                        <li>WOW</li>
+                        <li>RCN</li>
+                        <li>More</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="second-footer pt-5 pb-0">
+                <ul>
+                    <li>Home</li>
+                    <li class="border-start border-2 border-light"></li>
+                    <li>Blog</li>
+                    
+                </ul>
+                <p class="text-light">Copyright © DGS 2022, All Rights Reserved.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script>
+  // Array containing the data for each service card
+const serviceCards = [
+    {
+        id: 1,
+        logo: './images/frontier logo-1.png',
+        detailsLink: '#',
+        speed: '2000 Mbps',
+        contractLength: 'None',
+        connectionType: 'Fiber',
+        reliability: 'High',
+        price: '$149.99/mo',
+        priceDetailsLink: '#',
+        phone: '(844) 418-5455',
+        buttonText: 'Check with Frontier'
+    },
+    {
+        id: 2,
+        logo: './images/Spectrum-Emblem.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Fiber',
+        reliability: 'Average',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+    {
+        id: 3,
+        logo: './images/frontier logo-1.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Cable',
+        reliability: 'High',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+    {
+        id: 4,
+        logo: './images/frontier logo-1.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Cable',
+        reliability: 'Average',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+    {
+        id: 5,
+        logo: './images/Spectrum-Emblem.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Cable',
+        reliability: 'Average',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+    {
+        id: 6,
+        logo: './images/Spectrum-Emblem.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Cable',
+        reliability: 'Average',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+    {
+        id: 7,
+        logo: './images/frontier logo-1.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Cable',
+        reliability: 'High',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+    {
+        id: 8,
+        logo: './images/Hughesnet.png',
+        detailsLink: '#',
+        speed: '1000 Mbps',
+        contractLength: '12 Months',
+        connectionType: 'Satelite',
+        reliability: 'Low',
+        price: '$89.99/mo',
+        priceDetailsLink: '#',
+        phone: '(833) 123-4567',
+        buttonText: 'Check with Provider'
+    },
+
+    // Add more service cards as needed
+];
+
+// Function to render service cards dynamically
+function renderServiceCards(containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = ''; // Clear existing content
+
+    serviceCards.forEach(card => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'row service-card mb-4';
+
+        cardDiv.innerHTML = `
+           <div class="">
+    <div class="inner-container">
+        <!-- Logo section -->
+        <div class="card-section">
+            <img src="${card.logo}" alt="Logo" class="mb-3 w-100">
+            <a href="${card.detailsLink}" class="text-decoration-underline text-dark fw-medium">view details</a>
+        </div>
+        
+        <div class="border-line"></div>
+        
+        <!-- Speed section -->
+        <div class="card-section">
+            <p class="mb-1">Speeds up to</p>
+            <strong>${card.speed}</strong>
+        </div>
+        
+        <div class="border-line"></div>
+        
+        <!-- Contract Length section -->
+        <div class="card-section">
+            <p class="mb-1">Contract Length</p>
+            <strong>${card.contractLength}</strong>
+        </div>
+        
+        <div class="border-line"></div>
+        
+        <!-- Connection Type section -->
+        <div class="card-section">
+            <p class="mb-1">Connection Type</p>
+            <strong>${card.connectionType}</strong>
+            <p class="mb-1 rating">Reliability rating<i class="bi bi-info-circle"></i></p>
+            <div class="d-flex align-items-center gap-2">
+                <p class="reliability-rating mt-2">${card.reliability}</p>
+                <div class="reliability-meter">
+                    <div class="reliability-level"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-line"></div>
+        
+        <!-- Price section -->
+        <div class="card-section">
+            <p class="mb-1">Price</p>
+            <strong class="price">${card.price}</strong>
+            <p class="text-dark limit">for 36 mos</p>
+            <p class="text-dark border-bottom price-title">Price breakdown</p>
+        </div>
+        
+        <!-- Button section -->
+        <div class="card-section text-end">
+            <p class="text-dark price-title fw-bold">Call to Order.</p>
+            <p class="phone-number mb-1">${card.phone}</p>
+            <button class="btn btn-custom">${card.buttonText}</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+            
+        `;
+
+        container.appendChild(cardDiv);
+    });
+}
+
+// Call the function to render the service cards in the desired container
+document.addEventListener('DOMContentLoaded', () => {
+    renderServiceCards('tabContent'); // Replace 'tabContent' with your container ID if different
+});
+
+
+function searchZip() {
+            const zipCode = document.getElementById('zipCodeInput').value;
+            if (zipCode) {
+                alert('Searching for zip code: ' + zipCode);
+                // Implement further search functionality as needed
+            } else {
+                alert('Please enter a zip code');
+            }
+        }
+
+    </script>
+
+    
+    <!-- Fontawesome Code -->
+    <script src="https://kit.fontawesome.com/6a2acfaa82.js" crossorigin="anonymous"></script>
+    <!-- bootstrap-js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- <p><a href="${card.priceDetailsLink}" class="text-decoration-none">Pricing breakdown</a></p> -->
+<!-- <p class="mt-2"><small><i class="fa-solid fa-lock"></i> Secure checkout</small></p> -->

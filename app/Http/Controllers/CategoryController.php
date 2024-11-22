@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('back.categories.index');
+        $categories = Category::all();
+        return view('back.categories.index', compact('categories'));
     }
 
     /**
@@ -60,7 +61,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $category->update($request->post());
-        return back()->with(['ok' => 'The category has been updated successfully']);
+        return redirect()->route('categories.index')->with(['ok' => 'The category has been updated successfully']);
     }
 
     /**

@@ -22,8 +22,7 @@
                         <div class="s-content__entry-content">
 
                             <p class="lead">
-                                {!! nl2br(e(html_entity_decode($post->body))) !!}
-{{--                                {{ $post->body }}--}}
+                                {!! nl2br(html_entity_decode($post->body)) !!}
                             </p>
 
                         </div> <!-- end s-entry__entry-content -->

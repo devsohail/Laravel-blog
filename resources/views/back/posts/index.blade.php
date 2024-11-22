@@ -1,8 +1,8 @@
 @extends('layouts.back')
-@if (session()->has('addPostSuccess'))
+@if (session()->has('message'))
     @section('alerts')
         <div class="alert alert-success alert-dismissible fade show light-green" role="alert">
-            {!! session('addPostSuccess') !!}
+            {!! session('message') !!}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
