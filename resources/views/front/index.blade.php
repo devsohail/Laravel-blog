@@ -13,7 +13,7 @@
                             <img src="{{ asset('front/images/gps.png') }}" alt="GPS Icon">
                             <input type="text" id="input-text" class="form-control input-zip mr-2 border-danger border-2"
                                 placeholder="Enter Your Zip Code*" name="keyword">
-                        <button type="submit" class="btn btn-primary search-code fw-bold">Search
+                            <button type="submit" class="btn btn-primary search-code fw-bold">Search
                             </button>
                         </div>
                     </form>
@@ -91,118 +91,40 @@
                         <h5 class="text-light">Moving to a New Home?</h5>
                         <h3 class="text-light pb-4">Let's Get You Started!</h3>
                         <div class="row w-100 mx-auto">
-                            <div class="col-12 col-md-4 mb-4 order-card-body">
-                                <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
-                                    <img src="{{ asset('front/images/wireless-internet copy.png') }}"
-                                        class="wireless text-center mx-auto" alt="">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-light">Internet</h5>
-                                        <h3 class="text-light">$30.00</h3>
-                                        <p class="card-text order-para text-light">Plus taxes, fees and other charges.
-                                            Includes
-                                            Auto Pay and Paperless
-                                            Billing. Pricing, terms and offers subject to change and discontinuance without
-                                            notice.
-                                            Wired connection speeds. Wi-Fi speeds may vary. All services not available in
-                                            all
-                                            areas.
-                                        </p>
-                                        <ul class="list-unstyled mt-3">
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Enjoy blazing fast
-                                                speeds up to 1 Gig</li>
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Stream HD videos, play
-                                                games, shop online and do so much more</li>
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Secure your devices,
-                                                data & network for a safer web surfing</li>
-                                        </ul>
-                                        <div class="button-call">
-                                            <button
-                                                class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">Call
-                                                to order</button>
+                            @foreach ($pricing as $item)
+                                <div class="col-12 col-md-4 mb-4 order-card-body">
+                                    <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
+                                        <div class="wir-led d-flex align-items-center justify-content-center ">
+                                            @if ($item->internet == 1)
+                                                <img src="{{ asset('front/images/wireless-internet copy.png') }}"
+                                                    class="wireless" alt="">
+                                            @endif
+                                            @if ($item->cable_tv == 1)
+                                                <img src="{{ asset('front/images/led (1).png') }}"
+                                                    class="cable" alt="">
+                                            @endif
+                                            @if ($item->phone == 1)
+                                                <img src="{{ asset('front/images/phone-call.png') }}"
+                                                class="phone" alt="">
+                                            @endif
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-light">{{ $item->internet == 1 ? 'Internet' : '' }}
+                                                {{ $item->cable_tv == 1 ? ' + Cable TV' : '' }}
+                                                {{ $item->phone == 1 ? ' + Phone' : '' }}</h5>
+                                            <h3 class="text-light">${{ $item->internet_charges + $item->cable_tv_charges + $item->phone_charges }}</h3>
+                                            {!! $item->description !!}
+                                            <div class="button-call">
+                                                <button
+                                                    class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">
+                                                    <a href="tel:{{ $item->phone_number }}" class="text-light">Call to order</a>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-4 order-card-body">
-                                <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
-                                    <div class="wir-led d-flex align-items-center justify-content-center ">
-                                        <img src="{{ asset('front/images/wireless-internet copy.png') }}" class="wireless"
-                                            alt="">
-                                        <img src="{{ asset('front/images/led (1).png') }}" class="led" alt="">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-light">Internet + Cable TV</h5>
-                                        <h3 class="text-light">$50.00</h3>
-
-                                        <p class="card-text order-para text-light">Plus taxes, fees and other charges.
-                                            Includes
-                                            Auto Pay and Paperless
-                                            Billing. Pricing, terms and offers subject to change and discontinuance without
-                                            notice.
-                                            Wired connection speeds. Wi-Fi speeds may vary. All services not available in
-                                            all
-                                            areas.
-                                        </p>
-                                        <ul class="list-unstyled mt-3">
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Enjoy blazing fast
-                                                speeds up to 1 Gig</li>
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Stream HD videos, play
-                                                games, shop online and do so much more</li>
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Secure your devices,
-                                                data & network for a safer web surfing</li>
-                                        </ul>
-                                        <div class="button-call">
-                                            <button
-                                                class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">Call
-                                                to order</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-4 order-card-body">
-                                <div class="card bg-transparent border-2 border-light rounded-3 pt-3">
-                                    <div class="wir-led-pho d-flex align-items-center justify-content-center">
-                                        <img src="{{ asset('front/images/wireless-internet copy.png') }}" class="wireless"
-                                            alt="">
-                                        <img src="{{ asset('front/images/led (1).png') }}" class="led"
-                                            alt="">
-                                        <img src="{{ asset('front/images/phone-call.png') }}" class="phone"
-                                            alt="">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title text-light">Internet + Cable TV + Phone</h5>
-                                        <h3 class="text-light">$60.00</h3>
-
-                                        <p class="card-text order-para text-light">Plus taxes, fees and other charges.
-                                            Includes
-                                            Auto Pay and Paperless
-                                            Billing. Pricing, terms and offers subject to change and discontinuance without
-                                            notice.
-                                            Wired connection speeds. Wi-Fi speeds may vary. All services not available in
-                                            all
-                                            areas.
-                                        </p>
-                                        <ul class="list-unstyled mt-3">
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Enjoy blazing fast
-                                                speeds up to 1 Gig</li>
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Stream HD videos,
-                                                play
-                                                games, shop online and do so much more</li>
-                                            <li class="text-light"><i class="fa-solid fa-check"></i> Secure your devices,
-                                                data & network for a safer web surfing</li>
-                                        </ul>
-                                        <div class="button-call">
-                                            <button
-                                                class="py-2 px-4 border-2 border-light rounded-pill bg-transparent text-light">Call
-                                                to order</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -212,18 +134,23 @@
                 <h1 class="place fw-bold text-center">In One Place!</h1>
                 <div class="row">
                     @foreach ($companies as $company)
-                    <div class="col-12 col-md-3 mb-3">
-                        <div class="card border-primary {{ $loop->index == 1 ? 'border-danger bg-danger' : '' }} rounded-4 company-cards">
-                            <div class="card-body text-center">
-                                <img src="{{ asset('images/company/' . $company->company_logo) }}" class="w-50" alt="">
-                                <p class="card-text {{ $loop->index == 1 ? 'text-light' : '' }}">Bundles starting from <strong>${{ $company->monthly_rate }}/mo.</strong></p>
-                                <p class="card-text fs-6 {{ $loop->index == 1 ? 'text-light' : '' }}">
-                                    {!! $company->company_description !!}
-                                </p>
-                                <a href="{{route('company.show', $company->id)}}"
-                                    class="{{ $loop->index == 1 ? 'btn btn-danger order-to border-2 border-light bg-transparent rounded-pill' : 'btn btn-danger call-order bg-transparent text-danger rounded-pill border-2' }} ">Call
-                                    to
-                                    order</a>
+                        <div class="col-12 col-md-3 mb-3">
+                            <div class="card border-primary {{ $loop->index == 1 ? 'border-danger bg-danger' : '' }} rounded-4 company-cards"
+                                style="height: 400px;">
+                                <div class="card-body text-center">
+                                    <img src="{{ asset('images/company/' . $company->company_logo) }}" class="w-50"
+                                        alt="">
+                                    <p class="card-text {{ $loop->index == 1 ? 'text-light' : '' }}">Bundles starting from
+                                        <strong>${{ $company->monthly_rate }}/mo.</strong>
+                                    </p>
+                                    <p class="card-text fs-6 {{ $loop->index == 1 ? 'text-light' : '' }}">
+                                        {!! \Illuminate\Support\Str::limit($company->company_description, 200) !!}
+                                    </p>
+                                    <a href="{{ route('company.show', $company->id) }}"
+                                        class="{{ $loop->index == 1 ? 'btn btn-danger order-to border-2 border-light bg-transparent rounded-pill' : 'btn btn-danger call-order bg-transparent text-danger rounded-pill border-2' }} "
+                                        style="display: inline-flex ; position: absolute; bottom: 18px; right: 30%;">
+                                        Call to order
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -267,35 +194,33 @@
                     <div class="container">
                         <div class="carousel-inner">
                             <!-- First Slide -->
-                            @foreach ($comparisons as $post)
+                            @php
+                                $chunks = $comparisons->chunk(3); // Divide the comparisons into chunks of 3
+                            @endphp
+
+                            @foreach ($chunks as $chunk)
                                 <div class="carousel-item @if ($loop->first) active @endif">
                                     <div class="row row-cols-1 row-cols-md-3 g-4">
-                                        <div class="col">
-                                            <div class="card youtube-card border-0">
-                                                <img src="{{ asset('images/' . $post->image) }}" class="card-img-top"
-                                                    alt="...">
-                                                <div class="card-body">
-                                                    <h5 class="card-title text-secondary text-center">
-                                                        {{ $post->title }}</h5>
-                                                    <p class="card-text text-black text-center">{{ $post->excerpt }}
-                                                    </p>
+                                        @foreach ($chunk as $post)
+                                            <div class="col">
+                                                <div class="card youtube-card border-0">
+                                                    <a href="{{ route('posts.view', $post->slug) }}">
+                                                        <img src="{{ asset('images/' . $post->image) }}"
+                                                            class="card-img-top" alt="..." style="height: 250px;">
+                                                    </a>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title text-secondary text-center">
+                                                            {{ $post->title }}</h5>
+                                                        <p class="card-text text-black text-center">{{ $post->excerpt }}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             @endforeach
                             <!-- Carousel Navigation -->
-                            <button class="carousel-control-prev prev-button" type="button"
-                                data-bs-target="#blogCarousel" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon prev-button-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next next-button" type="button"
-                                data-bs-target="#blogCarousel" data-bs-slide="next">
-                                <span class="carousel-control-next-icon next-button-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
 
                         </div>
 
@@ -310,7 +235,7 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-                    
+
                     </div>
                 </div>
                 <div class="button-seemore pt-5 mt-5">
@@ -325,15 +250,30 @@
                     <h1 class="text-primary fw-bold text-center">Catch The latest From Our Cable TV</h1>
 
                     <div class="carousel-inner">
-                        <!-- First Slide -->
-                        @foreach ($posts as $post)
+                        @php
+                            $postChunks = $posts->chunk(3); // Divide the posts into chunks of 3
+                        @endphp
+
+                        @foreach ($postChunks as $chunk)
                             <div class="carousel-item @if ($loop->first) active @endif">
-                                <div class="card border-0 d-flex flex-column blogs-content">
-                                    <img src="{{ asset('images/' . $post->image) }}" class="card-img custom-img"
-                                        alt="...">
-                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                        <p class="card-text text-light text-center pb-3">{{ $post->title }}</p>
-                                    </div>
+                                <div class="row row-cols-1 row-cols-md-3 g-4">
+                                    @foreach ($chunk as $post)
+                                        <div class="col">
+                                            <div class="card border-0 d-flex flex-column blogs-content">
+
+                                                <img src="{{ asset('images/' . $post->image) }}"
+                                                    class="card-img custom-img" alt="...">
+
+                                                <a href="{{ route('posts.view', $post->slug) }}">
+                                                    <div class="card-img-overlay d-flex flex-column justify-content-end">
+                                                        <p class="card-text text-light text-center pb-3">
+                                                            {{ $post->title }}
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         @endforeach

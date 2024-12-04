@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Company;
+use App\Models\Pricing;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -24,28 +25,23 @@ class PageController extends Controller
         ->with('user', 'categories')
         ->get();
         $companies = Company::where('is_featured', true)->get();
+        $pricing = Pricing::all();
         return view('front.index', [
             'posts' => $posts,
             'companies' => $companies,
-            'comparisons' => $comparisons
-        ]);
-    }
-    public function blog(){
-        $posts = Post::where('featured', false)
-                    ->with('user', 'categories')
-                    ->get();
-        $categories = Category::all();
-        $featured = Post::featured()->take(3)->get();
-        // dd($featured);
-        return view('front.index', [
-            'posts' => $posts,
-            'featured' => $featured,
-            'categories' => $categories
+            'comparisons' => $comparisons,
+            'pricing' => $pricing
         ]);
     }
 
     public function posts(){
-        return view('posts.index');
+        $posts = Post::with('user', 'categories')
+                    ->get();
+        $categories = Category::all();
+        return view('front.posts.blog', [
+            'posts' => $posts,
+            'categories' => $categories
+        ]);
     }
     
     public function showPost(Post $post){

@@ -2,7 +2,8 @@
 
 @section('content')
     <main>
-        <div class="container main-section1">
+        <div class="container main-section1"
+            style="background-image: url({{ asset('images/company/' . $company->header_image) }});">
             <div class="main-content py-5">
                 <h2 class="cox-title fw-bold">{{ $company->company_name }}</h2>
                 <h4 class="cox-description fw-semi-bold">
@@ -18,8 +19,8 @@
         <div class="container-fluid deal-section">
             <div class="container py-5">
                 <div class="row">
-                    @if ($company->text_area_1)
-                        <div class="container-fluid content-sec1"
+                    @if ($company->text_area_1 || $company->image_area_1)
+                        <div class="container-fluid content-sec1 company-bg"
                             style="background-image: url({{ asset('images/company/' . $company->image_area_1) }});">
                             <div class="container first-content py-5">
                                 <h3 class="text-primary fw-bold">
@@ -28,8 +29,8 @@
                             </div>
                         </div>
                     @endif
-                    @if ($company->text_area_2)
-                        <div class="container-fluid content-sec1"
+                    @if ($company->text_area_2 || $company->image_area_2)
+                        <div class="container-fluid content-sec1 company-bg"
                             style="background-image: url({{ asset('images/company/' . $company->image_area_2) }});">
                             <div class="container first-content py-5">
                                 <h3 class="text-primary fw-bold">
@@ -38,8 +39,8 @@
                             </div>
                         </div>
                     @endif
-                    @if ($company->text_area_3)
-                        <div class="container-fluid content-sec1"
+                    @if ($company->text_area_3 || $company->image_area_3)
+                        <div class="container-fluid content-sec1 company-bg"
                             style="background-image: url({{ asset('images/company/' . $company->image_area_3) }});">
                             <div class="container first-content py-5">
                                 <h3 class="text-primary fw-bold">
@@ -48,8 +49,8 @@
                             </div>
                         </div>
                     @endif
-                    @if ($company->text_area_4)
-                        <div class="container-fluid content-sec1"
+                    @if ($company->text_area_4 || $company->image_area_4)
+                        <div class="container-fluid content-sec1 company-bg"
                             style="background-image: url({{ asset('images/company/' . $company->image_area_4) }});">
                             <div class="container first-content py-5">
                                 <h3 class="text-primary fw-bold">

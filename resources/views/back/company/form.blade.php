@@ -57,7 +57,7 @@
             {!! Form::textarea(
                 'company_description',
                 $formMode === 'edit' ? $company->company_description : null,
-                'required' == 'required' ? ['class' => 'form-control text-area', 'required' => 'required'] : ['class' => 'form-control text-area'],
+                ['class' => 'form-control text-area']
             ) !!}
             {!! $errors->first('company_description', '<p class="help-block">:message</p>') !!}
         </div>
@@ -67,7 +67,7 @@
     <div class="col-md-4">
         <div class="form-group{{ $errors->has('monthly_rate') ? 'has-error' : '' }}">
             {!! Form::label('monthly_rate', 'Monthly Rate', ['class' => 'control-label']) !!}
-            {!! Form::number(
+            {!! Form::text(
                 'monthly_rate',
                 null,
                 'required' == 'required' ? ['class' => 'form-control', 'required' => 'required'] : ['class' => 'form-control'],

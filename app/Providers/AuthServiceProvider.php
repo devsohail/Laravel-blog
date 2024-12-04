@@ -7,6 +7,8 @@ use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\QueryException;
+use App\Models\Model;
+use App\Policies\ModelPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -16,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+        Model::class => ModelPolicy::class,
     ];
 
     /**

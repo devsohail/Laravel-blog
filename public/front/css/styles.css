@@ -5252,3 +5252,12 @@ body.search-is-visible {
         padding-top: var(--vspace-1);
     }
 }
+.search-code {
+    border-radius: 0px 50px 50px 0px !important;
+    position: relative;
+    left: 0;
+    padding: 12px;
+    background-color: #003399 !important;
+    border-color: #003399;
+    margin:0px !important;
+}

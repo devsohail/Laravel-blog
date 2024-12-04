@@ -1009,3 +1009,14 @@ body {
         }
     }
 }
+
+input, textarea, select, pre, blockquote, figure, figcaption, table, p, ul, ol, dl, form, img, .video-container, .ss-custom-select {
+    margin-bottom: 0px !important;
+}
+.company-bg{    
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    margin: 10px 0px;
+    padding: 10px 10px;
+}

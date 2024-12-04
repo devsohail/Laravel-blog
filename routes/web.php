@@ -24,7 +24,12 @@ require __DIR__.'/auth.php';
 // frontend pages
 Route::get('/', 'PageController@index')->name('home');
 Route::get('/posts', 'PageController@posts')->name('posts');
-Route::get('/company/{company}', 'CompanyController@show')->name('company.show');   
+Route::get('/company/{company}', 'CompanyController@show')
+    ->where('company', '[0-9]+')
+    ->name('company.show');
+Route::get('/company/{slug}', 'CompanyController@showSlug')
+    ->where('slug', '[a-zA-Z0-9-]+')
+    ->name('company.show.slug');
 Route::get('/companies', [CompanyController::class, 'listing'])->name('company.listing');
 Route::get('/posts/{post:slug}', 'PageController@showPost')->name('posts.view');
 Route::get('/category/{category}', 'PageController@showCategory')->name('categories.view');
@@ -36,6 +41,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'auth'], function () {
     Route::resource('authors','AuthorController');
     Route::resource('companies','CompanyController');
     Route::get('company/{company}/{image}', 'CompanyController@removeImage')->name('company.remove-img');
+    Route::resource('pricing', 'PricingController');
 });
 
 
@@ -54,4 +60,5 @@ Route::post('admin/generator', ['uses' => '\Appzcoder\LaravelAdmin\Controllers\P
 Route::get('/test', function () {
     return 'Test route is working';
 });
+
 

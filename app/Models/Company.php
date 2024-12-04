@@ -51,6 +51,8 @@ class Company extends Model
         'text_area_2',
         'text_area_3',
         'text_area_4',
+        'slug',
+        'is_auto_searchable'
     ];
 
     

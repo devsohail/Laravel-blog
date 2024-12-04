@@ -102,6 +102,13 @@
                                 <p>Companies</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pricing.index') }}"
+                                class="{{ request()->is('admin/pricing*') ? 'nav-link active' : 'nav-link' }}">
+                                <i class="nav-icon fa fa-building"></i>
+                                <p>Pricing</p>
+                            </a>
+                        </li>
 
                     </ul>
                 </nav>
